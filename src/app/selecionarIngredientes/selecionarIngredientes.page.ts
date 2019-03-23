@@ -55,7 +55,7 @@ export class SelecionarIngredientes {
   removerIngrediente(ingrediente, index){
     this.ingredientes.splice(ingrediente.id-1,0,ingrediente);
     if(ingrediente.nome.toLowerCase().startsWith(this.parametroPesquisa.toLowerCase())){
-      this.filtroIngredientes.splice(ingrediente.id-1,0,ingrediente);
+      this.filtroIngredientes.splice(index,0,ingrediente);
     }
     this.ingredienteSelecionados.splice(index, 1);
   }
