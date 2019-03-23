@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SplashPageModule } from './splash/splash.module';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -17,7 +19,8 @@ import { SplashPageModule } from './splash/splash.module';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    SplashPageModule
+    SplashPageModule,
+    HttpClientModule
   ],
   providers: [
     StatusBar,
