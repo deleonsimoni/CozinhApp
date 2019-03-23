@@ -10,9 +10,10 @@
 
   <ion-searchbar #param (keyup)="filtrarIngredientes(param.value)"  placeholder="O que tem na sua geladeira?" color="danger"></ion-searchbar>
 
-      <div *ngIf="ingredienteSelecionados.length > 0">
+      <div class="selecionados" *ngIf="ingredienteSelecionados.length > 0">
         
           <ion-chip *ngFor="let ingredienteSelecionado of ingredienteSelecionados; let index = index">
+              <!-- [@manipularItem]="item" -->
           
             <ion-label>{{ingredienteSelecionado.nome}}</ion-label>
             <ion-icon (click)="removerIngrediente(ingredienteSelecionado, index)" name="close"></ion-icon>
@@ -20,7 +21,7 @@
           
       </div> 
 
-      <ion-item *ngFor="let ingrediente of filtroIngredientes; let index = index"  text-center>
+      <ion-item no-padding *ngFor="let ingrediente of filtroIngredientes; let index = index"  text-center>
           <ion-label (click)="selecionarIngrediente(ingrediente, index)" *ngIf="!ingrediente.isCheck">{{ingrediente.nome}}</ion-label>
       </ion-item>
  

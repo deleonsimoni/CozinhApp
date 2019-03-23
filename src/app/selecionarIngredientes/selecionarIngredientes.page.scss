@@ -1,26 +1,28 @@
-
-ion-content {
-
-    --background:#F09C63;
-
-
-}
-
-ion-footer {
-
-    ion-toolbar{
-        --background: #e01515e0;
-        --color: #fff;
-    }
-
-}
-
 ion-header {
-
     ion-toolbar{
         --background: #0dbb4fe0;
         --color: #fff;
     }
-
 }
 
+ion-content {
+    --background:#F09C63;
+    // ion-searchbar{
+    //     padding-bottom: 0px
+    // }
+    div.selecionados{
+        margin: 2px 8px 8px 8px;
+    }
+    ion-item{
+        margin: 4px 8px;
+        --border-radius: 8px;
+        --box-shadow: 0.1rem 0.1rem;
+    }
+}
+
+ion-footer {
+    ion-toolbar{
+        --background: #e01515e0;
+        --color: #fff;
+    }
+}
