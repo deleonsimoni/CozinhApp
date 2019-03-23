@@ -8,8 +8,9 @@ ion-content {
 
 ion-footer {
 
-    .toolbar-container{
-        background-color:rgba(224, 21, 21, 0.877);
+    ion-toolbar{
+        --background: #e01515e0;
+        --color: #fff;
     }
 
 }

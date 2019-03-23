@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class SelecionarIngredientes {
 
+  constructor() {}
+
+  public alerta() {
+    alert('ó o lee ae!');
+  }
 }
