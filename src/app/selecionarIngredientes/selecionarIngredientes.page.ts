@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { trigger, style, state, animate, transition } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -34,7 +35,7 @@ export class SelecionarIngredientes {
   public errorMsg: any;
   item: string = '';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
 
     this.getIngredientes();
 
@@ -77,7 +78,11 @@ export class SelecionarIngredientes {
     this.ingredienteSelecionados.splice(index, 1);
   }
 
-  public alerta() {
-    alert('ó o lee ae!');
+  public buscarReceitas() {
+    if(this.ingredienteSelecionados.length == 0){
+      alert('Selecione pelo menos um ingrediente');
+    } else {
+      this.router.navigate(['/listaDeReceitas', {ingredientes: JSON.stringify(this.ingredienteSelecionados)}]);
+    }
   }
 }

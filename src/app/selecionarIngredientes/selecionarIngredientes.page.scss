@@ -1,6 +1,6 @@
 ion-header {
     ion-toolbar{
-        --background: #0dbb4fe0;
+        --background: #e01515e0;
         --color: #fff;
     }
     --after{
@@ -11,6 +11,7 @@ ion-header {
 // medio - #ec6c00 | baixo - #ed951f | alto - #eb4b00
 
 ion-content {
+<<<<<<< HEAD
     // --background:#F09C63;
     // ion-searchbar{
     //     padding-bottom: 0px
@@ -19,6 +20,9 @@ ion-content {
     border: solid 1px;
     width: auto !important;
     height: auto !important;
+=======
+    --background:#fff9a4;
+>>>>>>> 9c66f2a5c81b65fb8ab2a975e8b3adc0c510297e
     div.selecionados{
         margin: 2px 8px 8px 8px;
     }
