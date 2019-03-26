@@ -1,5 +1,7 @@
 {
   "name": "CozinhaApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -2,8 +2,27 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  {
+    path: '',
+    redirectTo: 'splash',
+    pathMatch: 'full'
+  },
+  {
+    path: 'detalhar-receita',
+    loadChildren: './detalhar-receita/detalhar-receita.module#DetalharReceitaPageModule'
+  },
+  {
+    path: 'lista-de-receitas',
+    loadChildren: './lista-de-receitas/lista-de-receitas.module#ListaDeReceitasPageModule'
+  },
+  {
+    path: 'selecionar-ingredientes',
+    loadChildren: './selecionar-ingredientes/selecionar-ingredientes.module#SelecionarIngredientesPageModule'
+  },
+  {
+    path: 'splash',
+    loadChildren: './splash/splash.module#SplashPageModule'
+  },
 ];
 
 @NgModule({

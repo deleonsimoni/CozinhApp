@@ -1,0 +1,25 @@
+ion-header {
+    ion-toolbar{
+        --background: #e01515e0;
+        --color: #fff;
+    }
+}
+
+ion-content {
+    --background:#fff9a4;
+    div.selecionados{
+        margin: 2px 8px 8px 8px;
+    }
+    ion-item{
+        margin: 4px 8px;
+        --border-radius: 8px;
+        --box-shadow: 0.1rem 0.1rem;
+    }
+}
+
+ion-footer {
+    ion-toolbar{
+        --background: #e01515e0;
+        --color: #fff;
+    }
+}
