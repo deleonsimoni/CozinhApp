@@ -9,6 +9,18 @@ ion-header {
         }
     }
 
+}ion-chip{
+     --background: white;
+     --color:#FF3E3E ;
+     border: 2px solid #FF3E3E;
+     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+     .s-ion-icon{
+         color:#FF3E3E ;
+     }
+ }
+
+ion-card {
+    border: 2px solid #FF3E3E;
 }
 
 ion-content {
@@ -37,3 +49,7 @@ ion-footer {
     }
 }
 
+
+ion-item-divider{
+    --color: white;
+}

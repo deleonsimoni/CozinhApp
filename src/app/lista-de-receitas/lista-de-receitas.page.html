@@ -1,34 +1,43 @@
 <ion-header>
   <ion-toolbar>
       <ion-buttons slot="start">
-          <ion-back-button defaultHref="home"></ion-back-button>
+          <ion-back-button text="" defaultHref="home"></ion-back-button>
         </ion-buttons>
-    <ion-title >O que você pode cozinhar</ion-title>
+    <ion-title >Receitas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-chip *ngFor="let ingredienteSelecionado of ingredientes; let index = index"> 
+
+    <p  style="color: #FF3E3E; text-align: center"> Seus ingredientes selecionados</p>
+    <ion-chip *ngFor="let ingredienteSelecionado of ingredientes; let index = index">
       <ion-label>{{ingredienteSelecionado.nome}}</ion-label>
+
     </ion-chip>
+    <hr>
 
-    <ion-card *ngFor="let receita of receitas"(click)="detalharReceita()">
+    <ion-item-divider color="white" >
+        <div style="width: 100%; color:#FF3E3E; text-align: center; background-color: white">
+            Com esses ingredientes, você pode fazer:
+        </div>
+    </ion-item-divider>
 
-        <ion-card-header>
-          <ion-card-title>{{receita.nome}}</ion-card-title>
-        </ion-card-header>
-      
+    <ion-label></ion-label>
+    <ion-card style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);" *ngFor="let receita of receitas"(click)="detalharReceita()">
+
         <ion-card-content>
             <ion-row>
                 <ion-col size="4">
-                  <ion-img src="././assets/receitas/pizza.jpg"></ion-img>
-                </ion-col>   
-                <ion-col>
-                  Misture <b *ngFor="let ingredienteSelecionado of ingredientes">{{ingredienteSelecionado.nome}} </b>tudo numa bacia e pronto. Misture tudo numa bacia e pronto. 
+                  <ion-img style="border-radius: 30%" src="././assets/receitas/pizza.jpg"></ion-img>
+                </ion-col>
+                <ion-col style="font-size:14px">
+                    <ion-card-title  style="font-size:20px" >{{receita.nome}}</ion-card-title>
+
+                  Misture <b *ngFor="let ingredienteSelecionado of ingredientes">{{ingredienteSelecionado.nome}} </b>tudo numa bacia e pronto. Misture tudo numa bacia e pronto.
                 </ion-col>
             </ion-row>
         </ion-card-content>
-        <p> ver Mais...</p>
+        <p text-center="center">  ver Mais...</p>
 
       </ion-card>
 </ion-content>
