@@ -45,7 +45,7 @@ export class SelecionarIngredientes {
     const httpJson = this.http.get<any>('././assets/jsons/ingredientes.json');
 
     httpJson.subscribe(data => {
-      this.ingredientes = data.ingredientes;
+      this.ingredientes = data;
     }, error => {
       this.errorMsg = error;
     });
@@ -57,7 +57,7 @@ export class SelecionarIngredientes {
       this.filtroIngredientes = [];
     } else {
       this.filtroIngredientes = this.ingredientes.filter(element  => {
-        return element.nome.toLowerCase().startsWith(param.toLowerCase());
+        return element.toLowerCase().startsWith(param.toLowerCase());
       });
     }
   }
@@ -78,40 +78,52 @@ export class SelecionarIngredientes {
     this.ingredienteSelecionados.splice(index, 1);
   }
 
+  
+
   public async buscarReceitas() {
     if(this.ingredienteSelecionados.length == 0){
       alert('Selecione pelo menos um ingrediente');
     } else {
-      const receitasFind = await this.filtrarReceitas();
-      this.router.navigate(['/listaDeReceitas', {ingredientes: JSON.stringify(this.ingredienteSelecionados)}]);
+
+      const httpJson = this.http.get<any>('././assets/jsons/receitas.json');
+      let receitasFind = [];
+      let qtsIngrediente;
+
+      await httpJson.subscribe(async data =>  {
+        
+        for (const receita of data) {
+
+          qtsIngrediente = this.ingredienteSelecionados.length;
+
+          for (const ingrediente of this.ingredienteSelecionados) {
+
+              for (const ingredientesReceita of receita.secao[0].conteudo) {
+
+              if (await ingredientesReceita.indexOf(ingrediente) > -1) {
+
+                qtsIngrediente--;
+                if(qtsIngrediente <= 0) {
+                  receitasFind.push(receita);
+                }
+
+              }
+            }
+          }
+        };
+
+        
+      if(receitasFind.length > 0){
+        this.router.navigate(['/listaDeReceitas', {ingredientes: JSON.stringify(this.ingredienteSelecionados), receitas: JSON.stringify(receitasFind)}]);
+      } else {
+        alert('Nada encontrado');
+      }
+
+      
+      }, error => {
+        this.errorMsg = error;
+        receitasFind = []; 
+      });
     }
   }
-
-  public async filtrarReceitas(){
-    const httpJson = this.http.get<any>('././assets/jsons/receitas.json');
-    let receitasFind = [];
-
-     httpJson.subscribe(data => {
-      
-      data.forEach(receita => {
-        this.ingredienteSelecionados.forEach(ingrediente => {
-          if (receita.secao[0].conteudo.indexOf(ingrediente.nome) > -1) {
-            receitasFind.push(receita);
-          }
-        })
-      });
-
-     return receitasFind;
-    }, error => {
-      this.errorMsg = error;
-    });
-
-  }
-  
-  
-
-
-
-
 
 }
