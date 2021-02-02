@@ -87,6 +87,7 @@ export class SelecionarIngredientes {
 
       const httpJson = this.http.get<any>('././assets/jsons/receitas.json');
       let receitasFind = [];
+      
       let qtsIngrediente;
 
       await httpJson.subscribe(async data =>  {
