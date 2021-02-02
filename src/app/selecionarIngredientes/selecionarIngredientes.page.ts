@@ -72,7 +72,7 @@ export class SelecionarIngredientes {
   removerIngrediente(ingrediente, index) {
     this.item = 'excluir';
     this.ingredientes.splice(ingrediente.id - 1, 0, ingrediente);
-    if (ingrediente.nome.toLowerCase().startsWith(this.parametroPesquisa.toLowerCase())) {
+    if (ingrediente.toLowerCase().startsWith(this.parametroPesquisa.toLowerCase())) {
       this.filtroIngredientes.splice(index, 0, ingrediente);
     }
     this.ingredienteSelecionados.splice(index, 1);
