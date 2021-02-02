@@ -12,9 +12,10 @@
       <ion-label>{{ingredienteSelecionado.nome}}</ion-label>
     </ion-chip>
 
-    <ion-card (click)="detalharReceita()">
+    <ion-card *ngFor="let receita of receitas"(click)="detalharReceita()">
+
         <ion-card-header>
-          <ion-card-title>Pizza</ion-card-title>
+          <ion-card-title>{{receita.nome}}</ion-card-title>
         </ion-card-header>
       
         <ion-card-content>
@@ -24,11 +25,10 @@
                 </ion-col>   
                 <ion-col>
                   Misture <b *ngFor="let ingredienteSelecionado of ingredientes">{{ingredienteSelecionado.nome}} </b>tudo numa bacia e pronto. Misture tudo numa bacia e pronto. 
-                </ion-col>            
+                </ion-col>
             </ion-row>
         </ion-card-content>
         <p> ver Mais...</p>
-
 
       </ion-card>
 </ion-content>

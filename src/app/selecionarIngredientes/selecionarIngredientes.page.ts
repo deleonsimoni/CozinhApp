@@ -78,11 +78,40 @@ export class SelecionarIngredientes {
     this.ingredienteSelecionados.splice(index, 1);
   }
 
-  public buscarReceitas() {
+  public async buscarReceitas() {
     if(this.ingredienteSelecionados.length == 0){
       alert('Selecione pelo menos um ingrediente');
     } else {
+      const receitasFind = await this.filtrarReceitas();
       this.router.navigate(['/listaDeReceitas', {ingredientes: JSON.stringify(this.ingredienteSelecionados)}]);
     }
   }
+
+  public async filtrarReceitas(){
+    const httpJson = this.http.get<any>('././assets/jsons/receitas.json');
+    let receitasFind = [];
+
+     httpJson.subscribe(data => {
+      
+      data.forEach(receita => {
+        this.ingredienteSelecionados.forEach(ingrediente => {
+          if (receita.secao[0].conteudo.indexOf(ingrediente.nome) > -1) {
+            receitasFind.push(receita);
+          }
+        })
+      });
+
+     return receitasFind;
+    }, error => {
+      this.errorMsg = error;
+    });
+
+  }
+  
+  
+
+
+
+
+
 }
