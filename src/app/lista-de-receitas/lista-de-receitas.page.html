@@ -11,7 +11,7 @@
 
     <p  style="color: #FF3E3E; text-align: center"> Seus ingredientes selecionados</p>
     <ion-chip *ngFor="let ingredienteSelecionado of ingredientes; let index = index">
-      <ion-label>{{ingredienteSelecionado.nome}}</ion-label>
+      <ion-label>{{ingredienteSelecionado}}</ion-label>
 
     </ion-chip>
     <hr>
@@ -33,7 +33,7 @@
                 <ion-col style="font-size:14px">
                     <ion-card-title  style="font-size:20px" >{{receita.nome}}</ion-card-title>
 
-                  Misture <b *ngFor="let ingredienteSelecionado of ingredientes">{{ingredienteSelecionado.nome}} </b>tudo numa bacia e pronto. Misture tudo numa bacia e pronto.
+                  {{receita.secao[1].conteudo[0]}}
                 </ion-col>
             </ion-row>
         </ion-card-content>
