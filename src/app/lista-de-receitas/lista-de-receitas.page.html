@@ -23,7 +23,7 @@
     </ion-item-divider>
 
     <ion-label></ion-label>
-    <ion-card style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);" *ngFor="let receita of receitas"(click)="detalharReceita()">
+    <ion-card style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);" *ngFor="let receita of receitas" (click)="detalharReceita()">
 
         <ion-card-content>
             <ion-row>
@@ -33,7 +33,7 @@
                 <ion-col style="font-size:14px">
                     <ion-card-title  style="font-size:20px" >{{receita.nome}}</ion-card-title>
 
-                  {{receita.secao[1].conteudo[0]}}
+                  {{receita.secao[1]? receita.secao[1].conteudo[0] : 'continua'}}...
                 </ion-col>
             </ion-row>
         </ion-card-content>

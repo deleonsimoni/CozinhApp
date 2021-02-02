@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SplashPageModule } from './splash/splash.module';
 
 import { HttpClientModule } from '@angular/common/http';
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(),
     AppRoutingModule,
     SplashPageModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxLoadingModule.forRoot({})
   ],
   providers: [
     StatusBar,

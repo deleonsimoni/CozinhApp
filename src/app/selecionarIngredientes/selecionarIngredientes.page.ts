@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { trigger, style, state, animate, transition } from '@angular/animations';
 import { Router } from '@angular/router';
+import { LoadingService } from '../utils/loading.service';
 
 @Component({
   selector: 'app-home',
@@ -28,6 +29,7 @@ import { Router } from '@angular/router';
 })
 export class SelecionarIngredientes {
 
+  public loading = false;
   public ingredientes: any[] = [];
   public filtroIngredientes: any[] = [];
   public ingredienteSelecionados: any[] = [];
@@ -81,6 +83,7 @@ export class SelecionarIngredientes {
   
 
   public async buscarReceitas() {
+    this.loading = true;
     if(this.ingredienteSelecionados.length == 0){
       alert('Selecione pelo menos um ingrediente');
     } else {
@@ -118,9 +121,9 @@ export class SelecionarIngredientes {
       } else {
         alert('Nada encontrado');
       }
-
-      
+      this.loading = false;
       }, error => {
+        this.loading = false;
         this.errorMsg = error;
         receitasFind = []; 
       });
