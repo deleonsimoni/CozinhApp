@@ -3,10 +3,16 @@ ion-header {
         --background: #e01515e0;
         --color: #fff;
     }
+    ion-buttons{
+        ion-back-button{
+            color:white ;
+        }
+    }
+
 }
 
 ion-content {
-    --background:#fff9a4;
+    --background:#ffffff;
     div.selecionados{
         margin: 2px 8px 8px 8px;
     }
@@ -15,6 +21,13 @@ ion-content {
         --border-radius: 8px;
         --box-shadow: 0.1rem 0.1rem;
     }
+    ion-col{
+        text-overflow: ellipsis;
+        white-space: pre-wrap;
+        overflow: hidden;
+        width:100px;
+    }
+
 }
 
 ion-footer {
@@ -23,3 +36,4 @@ ion-footer {
         --color: #fff;
     }
 }
+

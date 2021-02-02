@@ -1,22 +1,40 @@
 ion-header {
     ion-toolbar{
-        --background: #e01515e0;
+        --background: #FF3E3E;
         --color: #fff;
     }
     --after{
         background-image: none;
+    }
+
+    ion-searchbar{
+        --color: black;
+        --placeholder-color: #FF3E3E;
+        --icon-color: #FF3E3E;
+       /* --box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+       */ ::ng-deep{
+            .searchbar-input-container{
+                .searchbar-input{
+                    border-radius: 20px;
+                    background-color: white;
+                    border: 2px solid #FF3E3E;
+                    color: #1e2023;
+
+                    //any style that you want to implement on your searchbar
+                }
+                .searchbar-search-icon{
+                    color:#FF3E3E ;
+                }
+            }
+        }
     }
 }
 
 // medio - #ec6c00 | baixo - #ed951f | alto - #eb4b00
 
 ion-content {
-    // --background:#F09C63;
-    // ion-searchbar{
-    //     padding-bottom: 0px
-    // }~
-    margin: 0px 11px 0px 11px !important;
-    border: solid 1px;
+
+    margin: 20px 11px 10px 11px !important;
     box-sizing: border-box;
     width: auto !important;
     height: auto !important;
@@ -24,25 +42,42 @@ ion-content {
         margin: 2px 8px 8px 8px;
     }
     ion-item{
+
         margin: 4px 8px;
         --border-radius: 0px;
         box-shadow: 0px;
         padding: 0px 10px 0px 10px;
         ion-label{
-            color: #ec6c00;
+            color:#FF3E3E ;
             font-weight: 600;
             text-transform: uppercase;
         }
     }
 }
 
+ion-chip{
+    --background: white;
+    --color:#FF3E3E ;
+    border: 2px solid #FF3E3E;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+    .s-ion-icon{
+        color:#FF3E3E ;
+    }
+}
+
 ion-footer {
-    padding: 0px 10px 10px 10px;
+    padding: 10px 10px 20px 10px;
     ion-toolbar{
-        --background: #eb4b00;
+      //  margin-top: 10px;
+        --background: #FF3E3E;
         --color: #fff;
-        border-radius: 0px 0px 10px 10px;
-        font-weight: 600;
-        text-transform: uppercase;
+        border-radius: 8px;
+       /* font-weight: 600;*/
+/*        text-transform: uppercase;*/
+        vertical-align: center;
+        width: 346px;
+        height: 54px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
     }
 }
