@@ -13,11 +13,16 @@ export class ListaDeReceitasPage implements OnInit {
   public ingredientes: any[] = [];
   public receitas;
 
-  constructor(private http: HttpClient, private router: Router, private active: ActivatedRoute ) {
-    
+  constructor(private http: HttpClient, private router: Router, private active: ActivatedRoute,  private loading: LoadingService) {
+    this.loading.present()
+    setTimeout(() => {
+      this.loading.dismiss()
+
+    }, 4000000);
     if(active.snapshot.params.ingredientes){
       this.ingredientes = JSON.parse(active.snapshot.params.ingredientes);
       this.receitas = JSON.parse(active.snapshot.params.receitas);
+
     }
 
    }

@@ -12,7 +12,6 @@
 </ion-header>
 
 <ion-content>
-  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
 
 
   <div class="selecionados" *ngIf="ingredienteSelecionados.length > 0">
@@ -37,11 +36,3 @@
     </ion-title>
   </ion-toolbar>
 </ion-footer>
-
-
-<ng-template #customLoadingTemplate>
-  <div class="custom-class">
-    <img class="centered" src="././assets/icon/load.gif">
-
-  </div>
-</ng-template>

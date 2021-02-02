@@ -13,7 +13,9 @@ export class LoadingService {
   async present() {
     this.isLoading = true;
     return await this.loadingController.create({
-       duration: 500000,
+      cssClass: 'custom-loading',
+      spinner: null,
+      message: `<img src=""../../assets/icon/load.gif"" class="img-align" />`
     }).then(a => {
       a.present().then(() => {
         console.log('presented');

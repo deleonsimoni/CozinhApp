@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { trigger, style, state, animate, transition } from '@angular/animations';
 import { Router } from '@angular/router';
 import { LoadingService } from '../utils/loading.service';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -29,7 +30,6 @@ import { LoadingService } from '../utils/loading.service';
 })
 export class SelecionarIngredientes {
 
-  public loading = false;
   public ingredientes: any[] = [];
   public filtroIngredientes: any[] = [];
   public ingredienteSelecionados: any[] = [];
@@ -37,7 +37,7 @@ export class SelecionarIngredientes {
   public errorMsg: any;
   item: string = '';
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, ) {
 
     this.getIngredientes();
 
@@ -83,9 +83,10 @@ export class SelecionarIngredientes {
   
 
   public async buscarReceitas() {
-    this.loading = true;
+    
     if(this.ingredienteSelecionados.length == 0){
       alert('Selecione pelo menos um ingrediente');
+
     } else {
 
       const httpJson = this.http.get<any>('././assets/jsons/receitas.json');
@@ -113,19 +114,19 @@ export class SelecionarIngredientes {
               }
             }
           }
+
         };
 
-        
+
       if(receitasFind.length > 0){
         this.router.navigate(['/listaDeReceitas', {ingredientes: JSON.stringify(this.ingredienteSelecionados), receitas: JSON.stringify(receitasFind)}]);
       } else {
         alert('Nada encontrado');
       }
-      this.loading = false;
-      }, error => {
-        this.loading = false;
-        this.errorMsg = error;
-        receitasFind = []; 
+    
+    }, error => {
+      this.errorMsg = error;
+      receitasFind = []; 
       });
     }
   }

@@ -23,6 +23,12 @@ ion-card {
     border: 2px solid #FF3E3E;
 }
 
+ion-loading {
+    
+      --background: #ffffff url("../../assets/icon/load.gif") no-repeat center;
+    
+  }
+
 ion-content {
     --background:#ffffff;
     div.selecionados{
@@ -53,3 +59,4 @@ ion-footer {
 ion-item-divider{
     --color: white;
 }
+
